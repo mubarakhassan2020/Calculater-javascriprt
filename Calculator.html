@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    .container {
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      height: 175px;
+      margin-top: 110px;
+    }
+   .container > input{
+    height: 37px;
+    margin-top: 10px    ;
+   }
+   button{
+    height: 40px;
+    background-color: green;
+    margin-top: 10px;
+   }
+  </style>
+</head>
+<body>
+    <div class="container"> 
+        <input id="num1" type="text"placeholder="Enter number 1">
+        <input id="num2" type="text" name="number2" placeholder="Enter number 2">
+        <input id="operator" type="text" name="operator" placeholder="(+, -, *, /)" >
+        <button onclick="calc()">Calculate</button>
+      </div>
+    <script>
+      function calc() {
+        let num1 = parseFloat(document.getElementById("num1").value);
+        let num2 = parseFloat(document.getElementById("num2").value);
+        let operator_v = (document.getElementById("operator").value);
+        if (operator_v.length === 1) {
+        var operator = operator_v.charAt(0);
+      } else {
+        console.log("Invalid input or more than one character entered");
+      }
+        let result;
+        switch (operator) {
+        case "+":
+            result = num1 + num2;
+            break;
+        case "-":
+            result = num1 - num2;
+            break;
+        case "*":
+            result = num1 * num2;
+            break;
+        case "/":
+            if (num2 === 0) {
+            alert("Error: Division by zero is not allowed");
+            break;
+            }
+            result = num1 / num2;
+            break;
+        default:
+             alert("Error: Invalid operator");
+            break;
+        }
+        alert(`Result:${result}`);
+            }   
+    </script>
+        
+</body>
+</html>
